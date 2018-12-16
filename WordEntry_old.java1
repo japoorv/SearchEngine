@@ -1,0 +1,37 @@
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+public class WordEntry
+{
+	String ori;
+	MyLinkedList<Position>pos=new MyLinkedList<Position>();
+
+	WordEntry()
+	{
+		
+	}
+	WordEntry(String word)
+	{		
+		ori=word;
+	}
+	void addPosition(Position position)
+	{
+		pos.Insert(position);
+	}
+
+	void addPositions(MyLinkedList<Position> positions)
+	{
+		Node<Position> temp=positions.front;
+		while(temp!=null)
+		{
+			if (temp.data!=null)pos.Insert(temp.data);
+			temp=temp.next;
+		}
+
+	}
+	MyLinkedList<Position> getAllPositionsForThisWord()
+	{
+		return pos;
+	}
+	
+}
